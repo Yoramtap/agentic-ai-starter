@@ -21,17 +21,38 @@
       100% { transform: scale(1); }
     }
     #sprite {
+      width: 128px;
+      height: 128px;
       animation: breathe 3s ease-in-out infinite;
+    }
+    .sprite-image {
+      width: 100%;
+      height: 100%;
+      background: url("mage-sheet.png") 0 0 / 200% 200% no-repeat;
+    }
+    .mirror {
+      transform: scaleX(-1);
     }
     .wiggle {
       animation: breathe 3s ease-in-out infinite, wiggle 200ms ease-in-out, flash 200ms ease-out;
     }
     .frame {
       display: inline-block;
-      padding: 12px;
+      padding: 18px;
       background: #d0c6a4;
       border: 6px solid #5c5341;
       box-shadow: inset 0 0 0 3px #9c9276;
+    }
+    .portrait {
+      display: inline-block;
+      padding: 6px;
+      background: #fff;
+      box-shadow: inset 0 0 0 2px #bcb39a;
+    }
+    .hint {
+      margin: 8px 0 0;
+      font-size: 12px;
+      text-align: center;
     }
     body {
       margin: 0;
@@ -46,36 +67,43 @@
 <body>
 
 <div class="frame" style="margin:0 auto;">
-  <img id="sprite" src="sprite-1.png" style="cursor:pointer;display:block;">
+  <div class="portrait">
+    <div id="sprite" style="cursor:pointer;">
+      <div class="sprite-image"></div>
+    </div>
+  </div>
+  <div class="hint">Use ↑ ↓ ← → to rotate</div>
 </div>
 
 <script>
-  let showingFirst = true;
   const toggleSound = new Audio("sparkle.mp3");
 
-  function toggleSprite() {
+  function setDirection(position, mirrored) {
+    spriteImage.style.backgroundPosition = position;
+    spriteImage.classList.toggle("mirror", mirrored);
     toggleSound.currentTime = 0;
     toggleSound.play();
-    if (showingFirst) {
-      this.src = "sprite-2.png";
-    } else {
-      this.src = "sprite-1.png";
-    }
-    showingFirst = !showingFirst;
-    this.classList.remove("wiggle");
-    void this.offsetWidth;
-    this.classList.add("wiggle");
+    sprite.classList.remove("wiggle");
+    void sprite.offsetWidth;
+    sprite.classList.add("wiggle");
   }
 
   const sprite = document.getElementById("sprite");
-  sprite.onclick = function () {
-    toggleSprite.call(this);
-  };
+  const spriteImage = sprite.querySelector(".sprite-image");
 
   document.addEventListener("keydown", function (event) {
-    if (event.code === "Space") {
+    if (event.code === "ArrowDown") {
       event.preventDefault();
-      toggleSprite.call(sprite);
+      setDirection("0 0", false);
+    } else if (event.code === "ArrowRight") {
+      event.preventDefault();
+      setDirection("100% 0", true);
+    } else if (event.code === "ArrowUp") {
+      event.preventDefault();
+      setDirection("0 100%", false);
+    } else if (event.code === "ArrowLeft") {
+      event.preventDefault();
+      setDirection("100% 0", false);
     }
   });
 </script>
