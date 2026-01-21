@@ -8,6 +8,8 @@ These rules apply to all planning and learning sessions.
 4. Prefer clarity over speed
 5. When unsure, stop and ask
 6. Stop as soon as “done” is reached
+7. At the start of each step, explicitly name which skill or mode is being used.
+
 
 These principles override speed, completeness, or optimization.
 
