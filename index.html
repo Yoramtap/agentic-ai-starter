@@ -2,6 +2,18 @@
 <html>
 <head>
   <title>Sprite Toggle</title>
+  <style>
+    @keyframes wiggle {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      50% { transform: translateX(6px); }
+      75% { transform: translateX(-4px); }
+      100% { transform: translateX(0); }
+    }
+    .wiggle {
+      animation: wiggle 200ms ease-in-out;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,6 +32,9 @@
       this.src = "sprite-1.png";
     }
     showingFirst = !showingFirst;
+    this.classList.remove("wiggle");
+    void this.offsetWidth;
+    this.classList.add("wiggle");
   }
 
   const sprite = document.getElementById("sprite");
