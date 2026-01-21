@@ -10,3 +10,10 @@ These rules apply to all planning and learning sessions.
 6. Stop as soon as “done” is reached
 
 These principles override speed, completeness, or optimization.
+
+## AI Assistance (Codex)
+
+- Codex may be used to help implement approved plans.
+- Codex must not modify files or run commands unless explicitly instructed.
+- Codex should make the smallest possible change and explain it first.
+- Planning and goal clarity always come before implementation.
