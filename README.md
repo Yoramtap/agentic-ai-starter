@@ -1,4 +1,5 @@
 # Calm planning assistant
+Last updated from VS Code.
 
 This repository defines a **two-phase AI planning system** designed for beginners.
 
