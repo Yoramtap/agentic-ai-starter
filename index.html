@@ -5,13 +5,18 @@
   <style>
     @keyframes wiggle {
       0% { transform: translateX(0); }
-      25% { transform: translateX(-6px); }
-      50% { transform: translateX(6px); }
-      75% { transform: translateX(-4px); }
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-2px); }
       100% { transform: translateX(0); }
     }
+    @keyframes flash {
+      0% { filter: brightness(1); box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+      50% { filter: brightness(1.2); box-shadow: 0 0 12px rgba(255, 255, 255, 0.6); }
+      100% { filter: brightness(1); box-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+    }
     .wiggle {
-      animation: wiggle 200ms ease-in-out;
+      animation: wiggle 200ms ease-in-out, flash 200ms ease-out;
     }
   </style>
 </head>
