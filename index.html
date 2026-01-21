@@ -11,8 +11,11 @@
 
 <script>
   let showingFirst = true;
+  const toggleSound = new Audio("sparkle.mp3");
 
   document.getElementById("sprite").onclick = function () {
+    toggleSound.currentTime = 0;
+    toggleSound.play();
     if (showingFirst) {
       this.src = "sprite-2.png";
       document.getElementById("label").textContent = "Showing: sprite-2.png";
