@@ -168,3 +168,9 @@ This system is NOT:
 - a replacement for thinking
 
 It is a **thinking aid**
+
+## How to start a new gpt chat
+I have a GitHub repo with a static RTS-style character selection screen.
+There is a current-state PRD at tasks/prd-character-select.md that describes what exists and known limitations.
+Act as a calm planning assistant.
+Ask me one question about the next small improvement.
