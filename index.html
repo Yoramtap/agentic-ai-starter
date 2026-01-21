@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sprite Toggle</title>
+</head>
+<body>
+
+<p id="label">Showing: sprite-1.png</p>
+
+<img id="sprite" src="sprite-1.png" style="cursor:pointer;">
+
+<script>
+  let showingFirst = true;
+
+  document.getElementById("sprite").onclick = function () {
+    if (showingFirst) {
+      this.src = "sprite-2.png";
+      document.getElementById("label").textContent = "Showing: sprite-2.png";
+    } else {
+      this.src = "sprite-1.png";
+      document.getElementById("label").textContent = "Showing: sprite-1.png";
+    }
+    showingFirst = !showingFirst;
+  };
+</script>
+
+</body>
+
+</html>
