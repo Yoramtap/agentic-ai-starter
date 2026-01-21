@@ -5,26 +5,34 @@
 </head>
 <body>
 
-<p id="label">Showing: sprite-1.png</p>
-
-<img id="sprite" src="sprite-1.png" style="cursor:pointer;">
+<img id="sprite" src="sprite-1.png" style="cursor:pointer;display:block;margin:0 auto;">
 
 <script>
   let showingFirst = true;
   const toggleSound = new Audio("sparkle.mp3");
 
-  document.getElementById("sprite").onclick = function () {
+  function toggleSprite() {
     toggleSound.currentTime = 0;
     toggleSound.play();
     if (showingFirst) {
       this.src = "sprite-2.png";
-      document.getElementById("label").textContent = "Showing: sprite-2.png";
     } else {
       this.src = "sprite-1.png";
-      document.getElementById("label").textContent = "Showing: sprite-1.png";
     }
     showingFirst = !showingFirst;
+  }
+
+  const sprite = document.getElementById("sprite");
+  sprite.onclick = function () {
+    toggleSprite.call(this);
   };
+
+  document.addEventListener("keydown", function (event) {
+    if (event.code === "Space") {
+      event.preventDefault();
+      toggleSprite.call(sprite);
+    }
+  });
 </script>
 
 </body>
