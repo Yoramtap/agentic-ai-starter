@@ -26,11 +26,20 @@
     .wiggle {
       animation: breathe 3s ease-in-out infinite, wiggle 200ms ease-in-out, flash 200ms ease-out;
     }
+    .frame {
+      display: inline-block;
+      padding: 12px;
+      background: #d0c6a4;
+      border: 6px solid #5c5341;
+      box-shadow: inset 0 0 0 3px #9c9276;
+    }
   </style>
 </head>
 <body>
 
-<img id="sprite" src="sprite-1.png" style="cursor:pointer;display:block;margin:0 auto;">
+<div class="frame" style="margin:0 auto;">
+  <img id="sprite" src="sprite-1.png" style="cursor:pointer;display:block;">
+</div>
 
 <script>
   let showingFirst = true;
